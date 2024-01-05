@@ -186,6 +186,23 @@ h4{
     height: 100px;
 }
 
+.news-input{
+    width: 50%;
+    margin: auto;
+}
+
+form{
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;
+    padding: 15px;
+}
+
+label{
+    font-size: 23px;
+    display: inline-block;
+    margin: 10px 0;
+    color: coral;
+}
+
 
 
 
@@ -214,7 +231,24 @@ footer a{
     margin-bottom: 10px;
 }
 
+.submit{
+    background-color: cornflowerblue;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 50px;
+    display: block;
+    margin: auto;
+}
+
 @media screen and (max-width:1200px) {
+    textarea{
+        width: 85%;
+    }
+
+    .news-input{
+        width: 90%;
+    }
     .outer_container{
         flex-direction: column;
     }

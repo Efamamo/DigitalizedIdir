@@ -231,7 +231,38 @@ h4{
     width: 45%
 }
 
+.news-inp,.announcement-item{
+    display: flex;
+    justify-content: space-around;
+}
+.announcement-item{
+    margin: 100px;
+}
+form{
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;
+    padding: 15px;
+}
 
+.submit{
+    background-color: cornflowerblue;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 50px;
+    display: block;
+    margin: auto;
+}
+
+
+label{
+    color: darkred;
+    font-size: 20px;
+}
+
+.member-inp{
+    max-width: 500px;
+    margin: 50px auto;
+}
 .anouncements div{
     border-radius: 5px;
     padding: 10px;
@@ -327,55 +358,7 @@ h4{
     width: 75%;
 }
 
-.social-medias{
-    width: 40%;
-}
 
-.social-medias div{
-    display: flex;
-justify-content: space-around;
-}
-
-.social-media{
-    width: 40px;
-}
-
-.contact{
-    width: 50%;
-}
-.contact form{
-    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;
-    padding: 15px;
-   
-}
-
-
-label{
-    font-size: 23px;
-    display: inline-block;
-    margin: 10px 0;
-    color: coral;
-}
-
-
-
-
-.phone-tel{
-    display: flex;
-    justify-content: space-between;
-}
-
-.phone-tel div{
-    width: 45%;
-}
-
-input:not(.search){
-    width: 95%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid grey;
-
-}
 
 
 
@@ -404,6 +387,17 @@ footer a{
     margin-bottom: 10px;
 }
 
+@media screen and (max-width: 1300px){
+    .news-inp,.announcement-item{
+        flex-direction: column;
+        margin: 5px;
+    }
+    .news-inp div,.announcement-item div{
+        max-width: 600px;
+        margin: 30px auto;
+    }
+    
+}
 
 @media screen and (max-width:1200px) {
     .each-news{
