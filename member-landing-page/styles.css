@@ -1,0 +1,107 @@
+
+/* body styling */
+
+/* NavBar styling */
+.dropdown-item {
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: rgb(82, 79, 79); /* Change background color on hover or focus */
+}
+
+.dropdown-item.active {
+  background-color: rgb(82, 79, 79); /* Set background color for active item */
+}
+
+/* NavBar End */
+
+
+/* Hero Section Styling */
+
+
+/* Hero Sectio End*/
+
+.dark-btn {
+  /* Add any additional styles for dark buttons */
+  background-color: #343a40; /* Change the background color */
+  border-color: #343a40; /* Change the border color */
+}
+.dark-btn:hover {
+  /* Add styles for button hover state if needed */
+  background-color: #23272b; /* Darken the background color on hover */
+  border-color: #23272b; /* Darken the border color on hover */
+}
+
+/* hero section image */
+
+.darken-image {
+  filter: brightness(
+    30%
+  ); /* Adjust the percentage to darken or lighten the image */
+}
+
+/* Customize Carousel Slide Content */
+.carousel-content {
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.carousel-content h5 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.carousel-content p {
+  font-size: 1em;
+  color: #666;
+}
+
+/* Adjust Carousel Navigation Arrows */
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Customize Active Indicator */
+.carousel-indicators li {
+  background-color: #333;
+}
+
+.carousel-indicators .active {
+  background-color: #666;
+}
+
+.carousel-item {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  height: 250px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s ease-in-out;
+
+}
+
+.carousel-item.active {
+    transform: scale(1.05); /* Adjust the scale as desired */
+  }
+  .carousel-indicators {
+    bottom: 10px; /* Adjust the position as needed */
+  }
+  
+
+      /* Items section */
+
+ 
