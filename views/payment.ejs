@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="flex items-center justify-center  bg-no-repeat  my-10" style="background-image: url('./images/black\ bg.jpg'); background-size: cover;  background-position: center;" ></body>>
+  <section class="min-h-screen max-w-lg flex flex-col items-center justify-center">
+    <div class="container  bg-gray-200 rounded-lg shadow-md bg-opacity-70 px-24 py-10 my-10">
+        <h1 class=" text-4xl font-bold text-center mb-6 uppercase">Payment Form</h1>
+        <form class="form">
+            <h2 class=" text-2xl font-bold text-center mb-6 ">Information</h2>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-full md:flex ">
+                    <div class="mb-4  md:inline-block pr-2">
+                        <div class="flex mb-2">
+                            <img src="./images/user.png" alt="" width="25" height="25" class="mr-1">
+                            <label for="name" class="text-xl font-medium ml-2">Name:</label>
+                        </div>
+                      <input type="text" id="name" placeholder="Enter Name" class="w-full h-12 border  rounded-lg px-4 mt-1" required>
+                    </div>
+                    <div class="mb-4  md:inline-block pl-2">
+                        <div class="flex mb-2">
+                            <img src="./images/gmail.png" alt="" width="25" height="25" class="mr-1">
+                            <label for="email" class="text-xl font-medium ml-2">Email:</label>
+                        </div>
+                      <input type="email" id="email" placeholder="Enter Email" value="" class="w-full h-12 border  rounded-lg px-4 mt-1" required>
+                    </div>
+                </div>
+                <div class="w-full md:w-full md:flex ">
+                    <div class="mb-4  md:inline-block pr-2">
+                        <div class="flex mb-2">
+                            <img src="./images/location-pin.png" alt="" width="25" height="25" class="mr-1">
+                            <label for="address" class="text-xl font-medium ml-2">Address:</label>
+                        </div>
+                      <input type="text" id="address" placeholder="Enter Address" class="w-full h-12 border  rounded-lg px-4 mt-1" required>
+                    </div>
+                    <div class="mb-4  md:inline-block pl-2">
+                        <div class="flex mb-2">
+                            <img src="./images/skyscraper.png" alt="" width="25" height="25" class="mr-1">
+                            <label for="city" class="text-xl font-medium ml-2">City:</label>
+                        </div>
+                      <input type="text" id="city" placeholder="Enter city" class="w-full h-12 border  rounded-lg px-4 mt-1" required>
+                    </div>
+                </div>
+
+                <div class="w-full ">
+                  <h2 class=" text-2xl font-bold text-center my-6">Payment Details</h2>
+                  <img src="images/telebirr.png" alt="" width="160"  class="block mx-auto my-4">
+                  <div class="mb-4">
+                    <div class="flex items-center mb-2">
+                        <img src="./images/phone-call.png" alt="" width="25" height="25" class="mr-1">
+                        <label for="phone" class="text-xl font-medium ml-2">Phone Number:</label>
+                    </div>
+                    <input type="number" placeholder="Enter Phone No" id="phone" class="w-full h-12 border  rounded-lg px-4 mt-1" required>
+                </div>
+                <div class="mb-4">
+                    <div class="flex items-center mb-2">
+                        <img src="./images/padlock.png" alt="" width="25" height="25" class="mr-1">
+                        <label for="password" class="text-xl font-medium ml-2">Password:</label>
+                    </div>
+                    <input type="password" placeholder="Enter Password" id="password" value="" required class="w-full h-12 border  rounded-lg px-4 mt-1" required>
+                
+                </div>
+                <div class="mb-4">
+                    <div class="flex items-center mb-2">
+                        <img src="./images/money.svg" alt="" width="25" height="25" class="mr-1">
+                        <label for="amount" class="text-xl font-medium ml-2">Amount:</label>
+                    </div>
+                    <input type="number" placeholder="Enter Amount" id="amount" required class="w-full h-12 border  rounded-lg px-4 mt-1 required">
+                </div>
+                  <button type="submit" class="payment__button bg-black hover:bg-gray-500 text-white w-60 h-12 rounded-full mb-10 flex mx-auto">
+                    <p class="text-xl font-medium text-center flex mx-auto mt-2">Pay Via Telebirr</p>
+                  </button>
+                </div>
+              </div>
+        </form>
+    </div>
+  </section>
+  <script>
+    const form = document.querySelector('.form')
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        alert("You Successfully Paid")
+        window.location.href = "/home"
+    })
+  </script>
+</body>
+
+</html>

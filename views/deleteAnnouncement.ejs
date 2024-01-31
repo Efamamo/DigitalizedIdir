@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deleteNews</title>
+    <style>
+        form{
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;
+            padding: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+        label,p{
+            color: black;
+            font-size: 20px;
+        }
+
+        .submit{
+            background-color: darkred;
+            cursor: pointer;
+            padding: 10px;
+            color: white;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 100px;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="/announcements/delete/<%=id%>/del" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <h3>Do You Want To delete the Announcement " <%=description%> "?</h3>
+        <input type="submit" class="submit" value="YES">
+    </form>
+</body>
+</html>

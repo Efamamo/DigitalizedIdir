@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-no-repeat px-4 py-4" style="background-image: url('./images/black\ bg.jpg'); background-size: cover;  background-position: center;" >
+    <div class="container mx-auto ">
+        <div class="max-w-lg  mx-auto bg-gray-200 rounded-lg shadow-md bg-opacity-70">
+            <form action="#"  class="p-24 ">
+                <h1 class="text-4xl font-bold text-center mb-6 uppercase">Login</h1>
+                <p class="text-right text-lg mb-3">Don't have an account? <a href="signup" class="text-blue-600 hover:underline">Register now</a></p>
+                <div class="mb-4">
+                    <div class="flex items-center mb-2">
+                        <img src="images/gmail.png" alt="" class="w-6 h-6 mr-2">
+                        <label for="email" class="text-xl font-medium">Email:</label>
+                    </div>
+                    <input type="email" placeholder="Enter Email" name="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md" required>
+                    <div class="email-error" style="color:darkred"></div>
+                </div>
+                <div class="mb-4">
+                    <div class="flex items-center mb-2">
+                        <img src="images/padlock.png" alt="" class="w-6 h-6 mr-2">
+                        <label for="password" class="text-xl font-medium">Password:</label>
+                    </div>
+                    <input type="password" placeholder="Enter Password" id="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-md" required>
+                    <div class="password-error" style="color:darkred"></div>
+                </div>
+                
+                <button type="submit" class="w-full bg-black text-white w-60 h-12 rounded-full hover:bg-gray-700">Login</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        
+        const form = document.querySelector('form')
+        const emailError = document.querySelector('.email-error')
+        const passwordError = document.querySelector('.password-error')
+        form.addEventListener('submit', async (event)=>{
+            event.preventDefault()
+             emailError.textContent = ''
+             passwordError.textContent = ''
+
+             let Data = {password: form.password.value ,email:form.email.value}
+
+             fetch(`http://localhost:3000/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'   
+                },
+                body: JSON.stringify(Data),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.errors){
+                        console.log(data)
+                        emailError.textContent = data.errors.email;
+                        passwordError.textContent = data.errors.password
+                    }
+    
+                    if (data.user){
+                        console.log(data)
+                        location.assign('/home')
+                    }
+                    })
+               
+               
+            })
+
+        
+    </script>
+</body>
+</html>

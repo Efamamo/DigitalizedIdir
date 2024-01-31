@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Repository</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .info-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .info-section .title {
+            margin-right: 10px;
+            color: darkblue;
+        }
+        .info-section h3 {
+            font-weight: bolder;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex; justify-content:center;margin:30px 0">
+            <img src="../images/member.png" alt="Profile Image" class="profile-image">
+        </div>
+        
+        
+        <div class="info-section">
+            <h3 class="title">UserId:</h3>
+            <h3><%= id %></h3>
+        </div>
+        <div class="info-section">
+            <h3 class="title">Name:</h3>
+            <h3><%= username %></h3>
+        </div>
+        <div class="info-section">
+            <h3 class="title">Email:</h3>
+            <h3><%= email %></h3>
+        </div>
+        <div class="info-section">
+            <h3 class="title">Address:</h3>
+            <h3><%= address %></h3>
+        </div>
+        <div class="info-section">
+            <h3 class="title">Role:</h3>
+            <h3><%= role %></h3>
+        </div>
+        
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

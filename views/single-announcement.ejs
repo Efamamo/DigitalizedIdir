@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single-announcemnt</title>
+    <style>
+        h2{
+            color: darkred;
+            text-align: center;
+        }
+        form{
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;
+            padding: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+        label,p{
+            color: black;
+            font-size: 20px;
+        }
+
+        .submit{
+            background-color: blue;
+            padding: 10px;
+            color: white;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 100px;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Edit Announcement:</h2>
+        <form action="/announcements/<%=id%>" method="post">
+            <input type="hidden" name="_method" value="PUT">
+            <label for="">Announcement:</label><br><br>
+            <textarea name="description" id="" cols="70" rows="6" required><%=description%></textarea><br><br>
+            <input class="submit" type="submit" name="" id="" value="Update">
+        </form>
+        
+    </div>
+</body>
+</html>

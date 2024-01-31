@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body style="text-align:center">
+    
+        <h2 style="font-size:30px;font-weight:bolder">Update Your Information here</h2>
+            <div style="max-width:500px;margin:50px auto">
+                <form action="/update" method="post">
+                    <div class="mt-8">
+                        
+                        <div class="flex items-center ">
+                            
+                            <label for="name" class="text-xl font-medium ml-2">Name:</label>
+                        </div>
+                        <input type="text" placeholder="Enter FullName" name="username" id="name" value="<%=user.username%>" required class="w-full h-12 border border-gray-300 rounded-lg px-4 mt-1">
+                        <div style="color:darkred" class="name-error"></div>
+                        
+                    </div>
+                    <div class="mt-8">
+                        
+                        <div class="flex items-center ">
+                            
+                            <label for="email" class="text-xl font-medium ml-2">Email:</label>
+                            <input style="border:none" type="text" placeholder="Enter Email" name="email" id="email" value="<%=user.email%>" readonly required class="w-full h-12 border border-gray-300 rounded-lg px-4 mt-1">
+                        </div>
+                        
+                        
+                        <div style="color:darkred" class="email-error"></div>
+                        
+                    </div>
+                    <div class="mt-8">
+                        
+                        <div class="flex items-center ">
+                            
+                            <label for="password" class="text-xl font-medium ml-2">Password:</label>
+                        </div>
+                        <input type="password" placeholder="Enter Password" name="password" id="password" value="<%=user.password%>" required class="w-full h-12 border border-gray-300 rounded-lg px-4 mt-1">
+                        <div style="color:darkred" class="password-error"></div>
+                        
+                    </div>
+                    <div class="mt-8">
+                        
+                        <div class="flex items-center ">
+                            
+                            <label for="address" class="text-xl font-medium ml-2">Password:</label>
+                        </div>
+                        <input type="text" placeholder="Enter Address" name="address" id="address" value="<%=user.address%>" required class="w-full h-12 border border-gray-300 rounded-lg px-4 mt-1">
+                        <div style="color:darkred" class="address-error"></div>
+                        
+                    </div>
+                    
+                    
+                    
+                    
+                    <button type="submit" class="container__button bg-black text-white mt-6 font-bold w-60 h-12 rounded-full hover:bg-gray-700 w-full">
+                        Update account 
+                    </button>
+                </div>
+                </form>
+            </div>
+            
+</body>
+</html>

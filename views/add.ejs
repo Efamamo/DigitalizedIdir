@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ad-styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .ad-news {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .News-inp, .Announce-inp {
+            width: 45%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="ad-news">
+        <div class="News-inp">
+            <h2>Enter News Content:</h2>
+            <form action="/addNews" method="post">
+                <label for="image">News Image URL:</label>
+                <input type="text" name="image" id="image" required><br>
+
+                <label for="title">News Title:</label>
+                <input type="text" name="title" id="title" required><br>
+
+                <label for="author">News Author:</label>
+                <input type="text" name="author" id="author" required><br>
+
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" required><br>
+
+                <label for="description">News Intro:</label><br>
+                <textarea name="description" id="description" cols="60" rows="6" required></textarea><br>
+
+                <label for="all">Whole News:</label><br>
+                <textarea name="all" id="all" cols="60" rows="12" required></textarea><br>
+
+                <label for="authorImg">Author Image URL:</label>
+                <input type="text" name="authorImg" id="authorImg" required><br>
+
+                <input class="submit" type="submit" value="Add">
+            </form>
+        </div>
+
+        <div class="Announce-inp">
+            <h2>Enter Announcement:</h2>
+            <form action="/addAnnounce" method="post">
+                <label for="announceDescription">Announcement:</label><br>
+                <textarea name="description" id="announceDescription" cols="70" rows="6" required></textarea><br>
+
+                <input class="submit" type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

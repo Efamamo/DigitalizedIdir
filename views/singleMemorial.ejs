@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        p{
+            font-size: 20px;
+            color: grey;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Single Item</title>
+</head>
+<body>
+            <h2>Enter Event Content:</h2>
+            
+            <form action="/memorials/<%=id%>" method="post">
+
+
+                <label for="title">Name:</label>
+                <input type="text" name="name" id="title" value="<%=name%>" required><br>
+
+                <label for="date">birthDate</label>
+                <input type="text" name="Bdate" id="date" value="<%= birthdate.toString().slice(4,15)%>"required><br>
+
+                <label for="date">deceasedDate:</label>
+                <input type="text" name="Ddate" id="date" value="<%= deceasedDate.toString().slice(4,15)%>"required><br>
+
+                <label for="description">Obituary:</label><br>
+                <textarea style="margin-bottom:20px" name="obituary" id="description" cols="50" rows="6" required><%=obituary%></textarea><br>
+                <label for="date">upload Image:</label>
+                <input type="text" name="picture" id="date" value="<%= picture%>"><br>
+
+                <input class="submit" type="submit" value="Update">
+            </form>
+       
+        
+        
+</body>
+</html>

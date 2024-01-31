@@ -1,0 +1,195 @@
+*{
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'PT Serif', serif;
+}
+.logo{
+    width: 45px;
+    height: 45px;
+    margin: 5px 5px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0a152f;
+    padding-right: 20px;
+}
+
+.svg{
+    width: 20px;
+    height: 20px;
+}
+
+header img{
+    cursor: pointer;
+}
+
+.header__ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.header__ul li{
+    padding-left: 5px;
+    margin-left: 5px;
+}
+
+.header__ul li a{
+    text-decoration: none;
+    color:white;
+}
+
+.header__ul li a:hover{
+    color: cyan;
+    padding-bottom: 3px;
+    border-bottom: 2px cyan solid;
+}
+.humburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.33s ease-in-out;
+    background-color: white;
+}
+
+select{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+option{
+    margin: 5px 0;
+}
+
+h2,h3{
+    color: darkred;
+    text-align: center;
+}
+h3{
+    color: darkblue;
+}
+
+.about{
+    display: flex;
+    gap: 20px;
+}
+
+section p{
+    margin-bottom: 40px;
+}
+
+
+
+.social-medias{
+    width: 40%;
+}
+
+.social-medias div{
+    display: flex;
+justify-content: space-around;
+}
+
+.social-media{
+    width: 40px;
+}
+
+.contact{
+    width: 50%;
+}
+.contact form{
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;
+    padding: 15px;
+   
+}
+
+
+label{
+    font-size: 23px;
+    display: inline-block;
+    margin: 10px 0;
+    color: black;
+}
+
+.submit{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 200px;
+    display: block;
+    margin: 6px auto;
+
+}
+
+
+.outer_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    
+}
+
+.outer_container section{
+    width: 45%
+}
+.bottom{
+    align-items: center;
+}
+
+.phone-tel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-tel div{
+    width: 45%;
+}
+
+input{
+    width: 95%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid grey;
+
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer>div{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+footer div div{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+    padding-right: 50px;
+    width: 20%;
+}
+footer a{
+    text-decoration: none;
+    color:black;
+    margin-bottom: 10px;
+}

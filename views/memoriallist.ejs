@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Memorials Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+
+</head>
+<body>
+
+
+    <header>
+        <div>
+            <img class="logo" src="images/logo.png" alt="">
+        </div>
+        
+        <nav>
+            <ul class="header__ul">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/items">Items</a></li>
+                <li><a href="/memorials">Memorials</a></li>
+                <li><a href="/members">Members</a></li>
+                <li><select id="dropdown" name="dropdown">
+                    <option value="">More</option>
+                    <option value="option1"><a href="">Reports</a></option>
+                    <option value="option1"><a href="">Memorial</a></option>
+                    <option value="option2"><a href="">Members List</a></option>
+                    <option value="option3"><a href="">Bylaw</a></option>
+                </select></li>
+            </ul>
+        </nav>
+
+        <div class="humburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <img id="toggleSidebar"  class="svg" src="images/manage.svg" alt="">
+      <div id="sidebar">
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px">
+          <img class="svg" src="images/member.png" alt="">
+          <h3 style="color:white; text-align:left"><%= user.username %></h3>
+        </div>
+        <a style="padding:0" href="/setting">
+          <div style="display:flex; align-items:center; gap:10px; margin-top:50px">
+            <img class="svg" src="images/setting.jpg" alt="">
+            <h5 style="color:white; text-align:left;margin-bottom:0;">Setting</h5>
+          </div>
+        </a>
+        
+        
+        
+        <a style="padding:3px" href="/logout">LogOut</a>
+      </div>
+    </header>
+
+    
+    <main style="max-width:1300px; margin:40px auto">
+        <div style="width:50%; margin:20px">
+            <h2 style="text-align:left">Memorials</h2>
+            <p>Explore our digital memorial, a dedicated space to honor and remember those recently departed. Each page is a heartfelt tribute, capturing unique stories and cherished memories. Navigate this virtual sanctuary to reflect, share, and connect with the enduring legacies of our beloved ones. May these memorials serve as a source of comfort and inspiration for our community.</p>
+        </div>
+        <div class="container mt-4">
+        
+            <div id="noResultsMessage" class="mb-4 text-center text-muted"></div>
+    
+            <h2 class="mb-4">In Loving Memory Of</h2>
+    
+            <div class="card-body">
+                <% if (memorials.length == 0) { %>
+                    <h1>There are No memorials</h1>
+                <% } %>
+                <% var index = 0; %>
+            
+                <% while (index < memorials.length && index < 6) { %>
+                    <div class="row" style="padding: 10px;margin: 40px auto;box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(156, 163, 175) 0px 10px 15px -3px, rgb(156, 163, 175) 0px 4px 6px -4px;border-radius: 6px;
+                    background-color: #fff;max-width:800px; align-items:center;justify-content:center">
+                        <div class="col-md-4">
+                            <img src="<%=memorials[index].picture%>" class="img-fluid" alt="Memorial Image">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="card-title"><%=memorials[index].name%></h5>
+                            <h6 class="card-text">
+                                <%=(memorials[index].birthdate).toString().slice(0,15)%> -
+                                <%=(memorials[index].deceasedDate).toString().slice(0,15)%>
+                            </h6>
+                            <p class="card-text"> <%=memorials[index].obituary%></p>
+                        </div>
+                        <% if (user.role == "Admin") { %>
+                        <div style="margin-top: 25px;width:100%;gap:15px; display:flex; justify-content:center">
+                            <a href="memorials/<%= memorials[index].id %>">
+                                <button style="background: darkblue; color: #fff; border: none; border-radius: 5px; padding: 5px; margin: 10px; cursor: pointer;">Update Memorial</button>
+                            </a>
+                            <a href="memorials/delete/<%= memorials[index].id %>">
+                                <button style="background: darkred; color: #fff; border: none; border-radius: 5px; padding: 5px; margin: 10px; cursor: pointer;">Delete Memorial</button>
+                            </a>
+                        </div>
+                        <%}%>
+                    </div>
+                    <% index++; %>
+                <% } %>
+            </div>
+        
+            <% if (user.role == "Admin") { %>
+                <div style="margin:20px auto; width:200px;">
+                    <a href="/addMemorial" class="btn btn-primary">
+                        Add New Memorial
+                    </a>
+                </div>
+            <%}%>
+            
+            
+        </div>
+    </main>
+    
+
+
+    <footer>
+        <h2 class="left">Explore Digitalized Idir</h2>
+        <div>
+            <div>
+                <a href="/home">Home</a>
+                <a href="/home">About</a>
+            </div>
+            <div>
+                <a href="/items">Items</a>
+                <a href="/news">News</a>
+            </div>
+            <div>
+                <a href="/members">Members</a>
+                <a href="/memorials">Memorial</a>
+            </div>
+            <div>
+                <a href="/bylaw">ByLaw</a>
+                <a href="/reports">Reports</a>
+            </div>
+        </div>
+        
+        <p>Copyright © 2023 DigitalizedIdir. All rights Reserved</p>
+    </footer>
+    <script src="news.js"></script>
+
+</body>
+</html>
