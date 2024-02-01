@@ -17,13 +17,23 @@ module.exports.getEventAdd = (req,res)=>{
 }
 
 module.exports.addEvent = async (req,res)=>{
-    console.log(req.body)
+
     try{
         const events = await Events.create({
                                         title:req.body.title,
                                         date:req.body.date,
                                         description: req.body.description
                                         })
+        const users = await Users.find();
+
+        for (const user of users) {
+            
+            const updatedData = {
+                notifications: [`There is new Event`]
+            };
+        
+            const result = await Users.updateOne({ _id: user._id }, { $set: updatedData });
+        }
         res.redirect('/home')
     
         }
@@ -107,7 +117,6 @@ module.exports.updateEvent = async (req, res) => {
 
 module.exports.update= async (req, res) => {
     if (req.body && req.body.username && req.body.email && req.body.password && req.body.address) {
-        console.log(req.body)
         // Update the 'description' property
         const updatedData ={
             username: req.body.username,

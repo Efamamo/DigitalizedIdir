@@ -12,14 +12,17 @@ let arr =async function(){
     return val
 }
 
+let members =async function(){
+    const users = await  User.find({});
+    const val=[users]
+    return val
+}
+
+
 module.exports.getNews = async(req,res)=>{
     const val = await arr()
     res.render('news',{ news: val[0],announcements: val[2], items: val[1], members: val[3] })}
 
-
-module.exports.getAdNews =async (req,res)=>{
-    const val = await arr()
-    res.render('ad-news',{ news: val[0],announcements: val[2], items: val[1], members: val[3] })}
 
 module.exports.getAdd = (req,res)=>{
     res.render('add')
@@ -104,6 +107,15 @@ module.exports.verifyAnnDelete = async(req,res)=>{
     }
 }
 
+module.exports.clear = async(req,res)=>{
+        const updatedData = {
+            notifications: []
+        };
+        const result = await User.updateOne({ _id: req.params.id }, { $set: updatedData });
+        res.redirect("/home")
+   
+}
+
 module.exports.updateAnnouncement =  async (req, res) => {
     if (req.body && req.body.description ) {
         // Update the 'description' property
@@ -121,7 +133,7 @@ module.exports.updateAnnouncement =  async (req, res) => {
         }
 
         // Send a response to the client indicating a successful update
-        res.redirect('/ad');
+        res.redirect('/news');
     } else {
         // Handle case when 'description' property is missing in req.body
         res.status(400).send('Bad Request: Missing description in request body');
@@ -155,7 +167,7 @@ module.exports.updateNews = async(req, res) => {
         }
 
         // Send a response to the client indicating a successful update
-        res.redirect('/ad');
+        res.redirect('/news');
     } else {
         // Handle case when 'description' property is missing in req.body
         res.status(400).send('Bad Request: Missing description in request body');
@@ -163,14 +175,15 @@ module.exports.updateNews = async(req, res) => {
 }
 
 
+
 module.exports.deleteAnnouncement = async(req,res)=>{
     const result = await Announcements.deleteOne({ _id: req.params.id });
-    res.redirect('/ad')
+    res.redirect('/news')
 }
 
 module.exports.deleteNews = async (req,res)=>{
     const result = await News.deleteOne({ _id: req.params.id });
-    res.redirect('/ad')
+    res.redirect('/news')
 }
 
 module.exports.addNews = async (req,res)=>{
@@ -186,9 +199,19 @@ module.exports.addNews = async (req,res)=>{
                                         authorImg: req.body.authorImg,
                                         total: req.body.all
                                         })
-        res.redirect('/ad')
-    
+        const users = await User.find();
+
+        for (const user of users) {
+            
+            const updatedData = {
+                notifications: [`There is news added`]
+            };
+        
+            const result = await User.updateOne({ _id: user._id }, { $set: updatedData });
+            console.log(user);
         }
+         
+        res.redirect('/news');}
 
     catch(err){
         console.log(err)
@@ -202,7 +225,18 @@ module.exports.addAnnouncement = async (req,res)=>{
         const announcement = await Announcements.create({
                                         description:req.body.description,
                                         })
-        res.redirect('/ad')
+        const users = await User.find();
+
+        for (const user of users) {
+            
+            const updatedData = {
+                notifications: [`There is new announcement`]
+            };
+        
+            const result = await User.updateOne({ _id: user._id }, { $set: updatedData });
+            console.log(user);
+        }
+        res.redirect('/news')
     
         }
 

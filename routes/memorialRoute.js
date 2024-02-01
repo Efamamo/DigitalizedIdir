@@ -11,6 +11,8 @@ router.get('/addMemorial',requireAuth,checkUser,memorialController.getAddMemoria
 router.post('/addMemorials',checkUser,memorialController.addMemorial)
 router.post('/memorials/:id',checkUser,memorialController.updateMemorial)
 router.post('/memorials/delete/:id',checkUser,memorialController.deleteMemorial)
+router.get('/bylaw',checkUser,(req,res)=>res.render('bylaw'))
+router.get('/report',checkUser,(req,res)=>res.render('report'))
 
 
 module.exports = router

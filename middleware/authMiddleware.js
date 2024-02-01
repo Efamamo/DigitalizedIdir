@@ -21,7 +21,6 @@ const requireAuth = (req,res,next)=>{
 
 const checkUser = (req,res,next)=>{
     const token = req.cookies.jwt
-    console.log(token)
 
     if (token){
         jwt.verify(token,"mysecret", async (err,decodedToken)=>{
@@ -31,7 +30,6 @@ const checkUser = (req,res,next)=>{
                 next()
             }
             else{
-                console.log(decodedToken)
                 let user = await User.findById(decodedToken.id)
                 res.locals.user = user;
                 next()

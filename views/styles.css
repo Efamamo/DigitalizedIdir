@@ -507,7 +507,9 @@ input.add-news{
     color: white;
     border-radius: 5px;
     padding: 15px;
-    margin-left: 100px;cursor: pointer;
+    margin:auto;
+    cursor: pointer;
+    width:220px;
     text-decoration: none;
     text-align: center;
 }

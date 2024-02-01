@@ -7,6 +7,7 @@ let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
+
 // storing full name of all months in array
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
@@ -69,4 +70,26 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+
+  
+
+// Your JavaScript code (assuming you have a function closeNotification defined)
+
+function showNotificationPopup() {
+    const notificationPopup = document.getElementById('notification-popup');
+    notificationPopup.style.display = 'block';
+}
+
+// Call the function to show the notification popup when needed
+showNotificationPopup();
+const clear = document.querySelector(".clear")
+clear.addEventListener('click', closeNotification)
+
+function closeNotification(){
+    const notificationPopup = document.getElementById('notification-popup');
+    notificationPopup.style.display = 'none';
+    user.notifications = [];
+    window.location.href = "/news"
+}
+
   

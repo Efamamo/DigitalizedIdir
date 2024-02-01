@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bylaw</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        div.cont {
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="file"] + label {
+            display: inline-block;
+        }
+
+        input[type="file"]:focus + label {
+            outline: 1px dotted #000;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+
+        a.bylaw {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img class="logo" src="images/logo.png" alt="">
+        </div>
+        
+        <nav>
+            <ul style="display:flex; align-items:center; margin-bottom:0"  class="header__ul">
+                <%if (user){%>
+                    <li><a href="/home">Home</a></li>
+                <%}%>
+
+                <%if (!user){%>
+                    <li><a href="/">Home</a></li>
+                <%}%>
+                
+                <% if (user) { %>
+                <li><a href="/news">News</a></li>
+                <%}%>
+                <li><a href="/items">Items</a></li>
+                <% if (user) { %>
+                <li><a href="/memorials">Memorials</a></li>
+                <li><a href="/members">Members</a></li>
+                <%}%>
+                <li><a href="/report">Report</a></li>
+                <li><a href="/bylaw">Bylaw</a></li>
+            </ul>
+        </nav>
+
+        <div class="humburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <% if (user) { %>
+            <img id="toggleSidebar"  class="svg" src="images/manage.svg" alt="">
+            <div id="sidebar">
+              <div style="display:flex; align-items:center; justify-content:center; gap:10px">
+                <img class="svg" src="images/member.png" alt="">
+                <h3 style="color:white; text-align:left"><%= user.username %></h3>
+              </div>
+              <a style="padding:0" href="/setting">
+                <div style="display:flex; align-items:center; gap:10px; margin-top:50px">
+                  <img class="svg" src="images/setting.jpg" alt="">
+                  <h5 style="color:white; text-align:left;margin-bottom:0;">Setting</h5>
+                </div>
+              </a>
+              
+              
+              
+              <a style="padding:3px" href="/logout">LogOut</a>
+            </div>
+        <%}%>
+
+        <%if (!user) {%>
+            <div style="display: flex;gap:5px; justify-content:end"> 
+                <a href="/signup"><button style="color:white;background:darkred; padding:10px; border:none; border-radius:6px; cursor:pointer">Get Started</button></a>
+            </div>
+        <%}%>
+    </header>
+
+        
+ <div style="font-family: Arial, sans-serif;
+ background-color: #f4f4f4;
+ margin: 0; margin-top:25px">
+    <h1 style="color:darkred">Welcome to Our Bylaws Page</h1>
+
+    <p style="width:50%;">Our organization's bylaws serve as the guiding principles and rules that govern the internal affairs and operations of our community. These bylaws are designed to provide a framework for decision-making, establish roles and responsibilities, and ensure transparency and accountability. As members of our community, it's essential to familiarize ourselves with these bylaws to better understand how our organization functions and how we can collectively contribute to its success. Please find below the key sections of our bylaws for your reference.</p>
+    <div class="cont" style="margin-top:0">
+        <% if (user && user.role == "Admin") { %>
+            <input type="file" accept=".pdf" id="fileInput">
+            <label for="fileInput">Choose Bylaw PDF file</label>
+            <%}%>
+        
+            <% if (!user || user.role == "User") { %>
+            <a class="bylaw" href="assets/bylaw.pdf" download="">Download By law</a>
+            <%}%>
+    </div>
+ </div>   
+
+    
+    <script src="news.js"></script>
+</body>
+</html>

@@ -21,13 +21,9 @@
               <li><a href="/items">Items</a></li>
               <li><a href="/memorials">Memorials</a></li>
               <li><a href="/members">Members</a></li>
-              <li><select id="dropdown" name="dropdown">
-                  <option value="">More</option>
-                  <option value="option1"><a href="">Reports</a></option>
-                  <option value="option1"><a href="">Memorial</a></option>
-                  <option value="option2"><a href="">Members List</a></option>
-                  <option value="option3"><a href="">Bylaw</a></option>
-              </select></li>
+              <li><a href="/report">Report</a></li>
+              <li><a href="/bylaw">Bylaw</a></li>
+              
           </ul>
       </nav>
 
@@ -56,6 +52,24 @@
         <a style="padding:3px" href="/logout">LogOut</a>
       </div>
   </header>
+  
+
+  <% if (user && user.notifications.length > 0) { %>
+    <div id="notification-popup">
+      <div class="notification-content">
+        <img class="svg" src="images/notify.png" alt="">
+        <p><%= user.notifications[0] %></p>
+        <form action="/clearNotifications/<%=user.id%>" method="post">
+          <button class="clear" type="submit">OK</button>
+      </form>
+    </div>
+    </div>
+      
+  <% } %>
+
+
+  
+
   <div class="bg-image-full" style="background-image: url('../images/heroImage.jpeg'); padding: 10px 0px;">
     <div style="text-align:center">
         <div style="height: 100px;"></div>
@@ -183,10 +197,10 @@
               
 
     
-    <div style="max-width:1200px; margin:100px auto" class="outer_container bottom">
+    <div style="max-width:1200px;justify-content:center; margin:100px auto;gap:50px" class="outer_container bottom">
       <div class="social-medias">
           <h2>Join Our Community</h2>
-          <p>Join Digital Idir's dynamic community! Connect with like-minded individuals, stay updated, and engage in meaningful discussions. Whether you seek knowledge or collaboration, Digital Idir is your inclusive digital home. Sign up today and be part of our vibrant network!</p>
+          <p>Join Digital Idir dynamic community! Connect with like-minded individuals, stay updated, and engage in meaningful discussions. Whether you seek knowledge or collaboration, Digital Idir is your inclusive digital home. Sign up today and be part of our vibrant network!</p>
           <div>
               <a href=""><img class="social-media" src="images/instagram.svg" alt=""></a>
               <a href=""><img class="social-media" src="images/telegram.svg" alt=""></a>
@@ -195,6 +209,7 @@
           </div>
 
       </div>
+      <% if (!user || user.role == "User") {%>
       <div class="contact">
           <h2>Contact</h2>
           <form action="/admin" method="post">
@@ -218,6 +233,7 @@
               <input class="submit" type="submit"  id="">
           </form>
       </div>
+      <%}%>
   </div>
   <footer>
     <h2 class="left">Explore Digitalized Idir</h2>

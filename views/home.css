@@ -368,3 +368,30 @@ button.delete {
 }
 
 
+#notification-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px;  /* Adjust the width as needed */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.notification-content {
+  text-align: center;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -23,13 +23,9 @@
                 <li><a href="/items">Items</a></li>
                 <li><a href="/memorials">Memorials</a></li>
                 <li><a href="/members">Members</a></li>
-                <li><select id="dropdown" name="dropdown">
-                    <option value="">More</option>
-                    <option value="option1"><a href="">Reports</a></option>
-                    <option value="option1"><a href="">Memorial</a></option>
-                    <option value="option2"><a href="">Members List</a></option>
-                    <option value="option3"><a href="">Bylaw</a></option>
-                </select></li>
+                <li><a href="/report">Report</a></li>
+                <li><a href="/bylaw">Bylaw</a></li>
+                
             </ul>
         </nav>
 
@@ -135,7 +131,7 @@
                 <% } %>
 
                 <% var index = 0; %>
-                <% while (index < announcements.length & index < 10) { %>
+                <% while (index < announcements.length & index < 6) { %>
                 
                 <div><%=announcements[index].description%></div>
                     <% if (user.role == "Admin") {%>
@@ -152,7 +148,9 @@
                     <% if (items.length==0) { %>
                         <h1>There is No new item added</h1>
                     <% } %>
-                    <% for (var index = 0; index < items.length; index += 2) { %>
+
+                    <% var index = 0 %>
+                    <% while (index < items.length && index < 4) { %>
                     <div class="new-items">
                         
                             <a href="items.html#<%= items[index].id %>">
@@ -174,6 +172,7 @@
                             <% } %>
                         
                     </div>
+                    <% index +=2 %>
                     <% } %>
                     
                     
@@ -189,7 +188,8 @@
                 <% if (members.length==0) { %>
                     <h1>There is No new Member</h1>
                 <% } %>
-                <% for (var index = 0; index < members.length; index += 4) { %>
+                <% var index=0 %>
+                <% while(index < members.length && index < 8) { %>
                 <div>
 
                     <div>
@@ -198,7 +198,7 @@
                                 <img src="images/member.jpg" alt="">
                                 <div>
                                     <h3><%=members[index].username%></h3>
-                                    <p><%=members[index].username%> Just Joined our community</p>
+                                    <p><%=members[index].username%> Just Joined our community, Welcome <%=members[index].username%></p>
                                 </div>
                             </div>
                         </a>
@@ -208,7 +208,7 @@
                                 <img src="images/member2.png" alt="">
                                 <div>
                                     <h3><%=members[index+1].username%></h3>
-                                    <p><%=members[index+1].username%> Just Joined our community</p>
+                                    <p><%=members[index+1].username%> Just Joined our community, Welcome <%=members[index + 1].username%></p>
                                 </div>
                             </div>
                         </a>
@@ -222,7 +222,7 @@
                                 <img src="images/member3.jpg" alt="">
                                 <div>
                                     <h3><%=members[index+2].username%></h3>
-                                    <p><%=members[index+2].username%> Just Joined our community</p>
+                                    <p><%=members[index+2].username%> Just Joined our community,Welcome <%=members[index + 2].username%></p>
                                 </div>
                             </div>
                         </a>
@@ -233,13 +233,14 @@
                                 <img src="images/member4.jpg" alt="">
                                 <div>
                                     <h3><%=members[index+3].username%></h3>
-                                    <p><%=members[index+3].username%> joined our community</p>
+                                    <p><%=members[index+3].username%> joined our community, Welcome <%=members[index + 3].username%></p>
                                 </div>
                             </div>
                         </a>
                         <% } %>
                     </div>
                 </div>
+                <%index+=4%>
                 <% } %>
 
                 
@@ -249,44 +250,9 @@
             </section>
 
         </div>
-        <div class="outer_container bottom">
-            <div class="social-medias">
-                <h2>Join Our Community</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque officiis libero modi quisquam ullam quo corrupti dolorem magni obcaecati reiciendis saepe, consectetur quis dolorum, omnis ab. Pariatur architecto exercitationem amet.</p>
-                <div>
-                    <a href=""><img class="social-media" src="images/instagram.svg" alt=""></a>
-                    <a href=""><img class="social-media" src="images/telegram.svg" alt=""></a>
-                    <a href=""><img class="social-media" src="images/twitter.svg" alt=""></a>
-                    <a href=""><img class="social-media"src="images/facebook.svg" alt=""></a>
-                </div>
-
-            </div>
-            <div class="contact">
-                <h2>Contact</h2>
-                <form action="/admin" method="post">
-                    <div class="phone-tel">
-                        <div>
-                            <label for="">Name:</label><br>
-                            <input type="text" name="name" id="" required><br>
-                        </div>
-                        <div>
-                            <label for="">Phone Number:</label><br>
-                            <input type="text" name="phone" id="" required><br>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="">Email:</label><br>
-                        <input type="email" name="email" id="" required><br>
-                    </div>
-                    <label for="">Your Concern:</label><br>
-                    <textarea name="concern" id="" cols="60" rows="20" required></textarea>
-                    <input class="submit" type="submit"  id="">
-                </form>
-            </div>
-        </div>
+        
         <% if (user.role == "Admin") {%>
-            <form class="add-news" action="/add" method="get">
+            <form style="text-align:center; width:100%" class="add-news" action="/add" method="get">
                 <input type="submit" value="ADD News and Announcements" class="add-news"></a>
             </form>
         <%}%>

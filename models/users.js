@@ -31,7 +31,8 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         required:[true, "Please Enter Role"]
-    }
+    },
+    notifications: [{ type: String }]
 })
 
 userSchema.pre('save', async function (next){
